@@ -51,7 +51,7 @@ regressionTest = () => {
 
         const cartSpeedMPS = 0.2;
         const timeBetweenSt1St2Ms = 8 * 1000;
-        const timeBetweenActionsMs = 600;
+        const timeBetweenActionsMs = 1.5 * 1000;
 
         const cart1 = 'Cart RT1';
         const cart2 = 'Cart RT2';
