@@ -403,6 +403,8 @@
     const resetUserBadgesBtn = document.getElementById('resetUserBadgesBtn');
 
     resetUserBadgesBtn.addEventListener('click', () => {
+        if (!confirm("Are you sure? It can not be undone"))
+            return;
         const username = document.getElementById('usernameField').value.trim();
 
         if (!username) {
@@ -426,6 +428,8 @@
     const resetUserProgressBtn = document.getElementById('resetUserProgressBtn');
 
     resetUserProgressBtn.addEventListener('click', () => {
+        if (!confirm("Are you sure? It can not be undone"))
+            return;
         const username = document.getElementById('usernameField').value.trim();
 
         if (!username) {
