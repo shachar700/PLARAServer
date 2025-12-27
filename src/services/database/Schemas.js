@@ -16,7 +16,9 @@ const { Schema, model } = mongoose;
 const BadgeSchema = new Schema({
   badge_id: { type: Number, required: true, unique: true },
   title: { type: String, required: true },
-  description: { type: String, required: true }
+  title_he: { type: String, required: true },
+  description: { type: String, required: true },
+  description_he: { type: String, required: true }
 });
 
 const UserBadgeSchema = new Schema({
