@@ -1,4 +1,4 @@
-const { Badge, UserBadge, UserProgress, GuideRead} = require('../services/database/Schemas');
+const { Badge, UserBadge, UserProgress, GuideRead } = require('../services/database/Schemas');
 const { logMessage } = require("../utils");
 
 const initBadges = async () => {
@@ -9,43 +9,60 @@ const initBadges = async () => {
             {
                 badge_id: 101,
                 title: "Getting Started",
-                description: "Play for 5 minutes."
+                title_he: "מתחילים",
+                description: "Play for 5 minutes.",
+                description_he: "שחק במשך 5 דקות."
             },
             {
                 badge_id: 102,
                 title: "Settling In",
-                description: "Play for 10 minutes."
+                title_he: "נכנסים לעניינים",
+                description: "Play for 10 minutes.",
+                description_he: "שחק במשך 01 דקות."
             },
             {
                 badge_id: 201,
                 title: "Curious Mind",
-                description: "Read your first guide."
+                title_he: "סקרן מטבעו",
+                description: "Read your first guide.",
+                description_he: "קרא את המדריך הראשון שלך."
             },
             {
                 badge_id: 202,
                 title: "Guide Explorer",
-                description: "Read 2 guides."
+                title_he: "חוקר מדריכים",
+                description: "Read 2 guides.",
+                description_he: "קרא 2 מדריכים."
             },
             {
                 badge_id: 203,
                 title: "Avid Reader",
-                description: "Read 3 guides."
+                title_he: "קורא נלהב",
+                description: "Read 3 guides.",
+                description_he: "קרא 3 מדריכים."
             },
             {
                 badge_id: 204,
                 title: "Master Reader",
-                description: "Read all guides."
+                title_he: "אמן הקריאה",
+                description: "Read all guides.",
+                description_he: "קרא את כל המדריכים."
             },
             {
                 badge_id: 301,
                 title: "Quiz Challenger",
-                description: "Complete a quiz."
+                title_he: "מתמודד חידונים",
+                description: "Complete a quiz.",
+                description_he: "השלם חידון."
             },
             {
                 badge_id: 302,
                 title: "Quiz Master",
-                description: "Score 100% on a quiz."
+                title_he: "אמן החידונים",
+                description: "Score 100% on a quiz.",
+                description_he: "קבל ציון 001% בחידון."
             }
+
         ]);
         return 'Badges inserted into the database.';
     } else {
@@ -102,4 +119,4 @@ const resetUserProgress = async (username) => {
 };
 
 
-module.exports = { initBadges, resetAllUserBadges, resetAllUserProgress, resetUserBadges, resetUserProgress};
+module.exports = { initBadges, resetAllUserBadges, resetAllUserProgress, resetUserBadges, resetUserProgress };

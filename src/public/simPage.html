@@ -13,12 +13,39 @@
         input, select { padding: 8px; margin: 5px 0; font-size: 16px; }
         label {font-weight: bold; }
         option { font-size: 16px; }
+
+        /* Status row */
+        #statusRow {
+            background-color: #dddddd; /* gray background */
+            color: #0d6efd; /* blue text */
+            padding: 8px 12px;
+            border-radius: 6px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .status-item { display:flex; gap:6px; align-items:center; }
+        .status-label { color: #0d6efd; }
+        .status-value { color: #0d6efd; }
+        .speed.safe { color: green; }
+        .speed.danger { color: red; }
     </style>
 </head>
 <body>
 <h1>Braude Project 2025 - PLARA Simulator</h1>
 <h4>Created by Shlomi Fridman and Shahar Berenson</h4>
 <br>
+
+<div id="statusRow">
+    <div class="status-item"><span class="status-label">Game:</span><span id="gameName" class="status-value">PLARA Simulator</span></div>
+    <div class="status-item"><span class="status-label">Lives:</span><span id="lives" class="status-value">3</span></div>
+    <div class="status-item"><span class="status-label">Level:</span><span id="level" class="status-value">1</span></div>
+    <div class="status-item"><span class="status-label">Speed:</span><span id="speedValue" class="status-value speed safe">0.0</span></div>
+    <div class="status-item" style="margin-left:auto;"><span class="status-label">Controls:</span><span id="controls" class="status-value">Arrows: Move • Space: Action</span></div>
+</div>
+
 
 <div class="connection-control">
     <label for="addressField">Server URL:</label>
@@ -176,6 +203,7 @@
             toggleBtn.textContent = 'Switch to localhost';
         }
         addressField.value = currentUrl;
+        loadBadges();
     });
 
     resetBtn.addEventListener('click', () => {
@@ -543,6 +571,41 @@
             resultDiv.textContent = `Error: ${err}`;
         });
     });
+
+    // --- Status row helper functions ---
+    const _gameNameEl = document.getElementById('gameName');
+    const _livesEl = document.getElementById('lives');
+    const _levelEl = document.getElementById('level');
+    const _speedEl = document.getElementById('speedValue');
+    const _controlsEl = document.getElementById('controls');
+
+    function setGameName(name) { if(_gameNameEl) _gameNameEl.textContent = name; }
+    function setLives(n) { if(_livesEl) _livesEl.textContent = n; }
+    function setLevel(n) { if(_levelEl) _levelEl.textContent = n; }
+    // setSpeed(value, safeThreshold) - highlights green if value <= safeThreshold, else red
+    function setSpeed(val, safeThreshold = 1.0) {
+        if(!_speedEl) return;
+        _speedEl.textContent = val;
+        const v = parseFloat(val);
+        if (isNaN(v)) { _speedEl.classList.remove('safe','danger'); return; }
+        if (v <= safeThreshold) { _speedEl.classList.add('safe'); _speedEl.classList.remove('danger'); }
+        else { _speedEl.classList.add('danger'); _speedEl.classList.remove('safe'); }
+    }
+    function setControls(text) { if(_controlsEl) _controlsEl.textContent = text; }
+
+    // Expose functions for external use (console or other scripts)
+    window.setGameName = setGameName;
+    window.setLives = setLives;
+    window.setLevel = setLevel;
+    window.setSpeed = setSpeed;
+    window.setControls = setControls;
+
+    // Initialize default values
+    setGameName('PLARA Simulator');
+    setLives(3);
+    setLevel(1);
+    setSpeed(0.0, 1.0);
+    setControls('Arrows: Move • Space: Action');
 </script>
 </body>
 </html>

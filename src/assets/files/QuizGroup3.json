@@ -6,7 +6,7 @@
     {
       "question_id": 1,
       "title": "What is the primary purpose of the production line in Lab D106?",
-      "title_he": "מהו המטרה העיקרית של קו הייצור במעבדה D601?",
+      "title_he": "מהו המטרה העיקרית של פס ייצור במעבדה 601D?",
       "answers": [
         "To produce commercial goods for sale",
         "To simulate automated material handling and manufacturing processes",
@@ -26,7 +26,7 @@
     {
       "question_id": 2,
       "title": "Which station is responsible for manufacturing or milling parts?",
-      "title_he": "איזה תחנה אחראית לייצור או קידוח חלקים?",
+      "title_he": "איזה תחנה אחראית להכנה או קידוח של חלקים?",
       "answers": [
         "Storage",
         "Review",
@@ -77,20 +77,20 @@
       "answers_he": [
         "SCORBOT-ER V Plus",
         "Yaskawa Motoman GP8",
-        "BenchMill 0006",
-        "SCORA ER-41",
+        "BenchMill 6000",
+        "SCORA ER-14",
         "ASRS 2"
       ],
-      "correctAnswerIndex": 0
+      "correctAnswerIndex": 3
     },
     {
       "question_id": 5,
       "title": "What is the role of the QR-CODE TRIG sensors in the production line?",
-      "title_he": "מהו תפקיד החיישנים QR-CODE TRIG בקו הייצור?",
+      "title_he": "מהו תפקיד החיישנים QR-CODE TRIG בפס ייצור?",
       "answers": [
         "To measure cart speed",
         "To detect defective parts",
-        "To scan QR codes confirming a cart’s arrival at a station",
+        "To scan QR codes confirming a cart's arrival at a station",
         "To align components during assembly",
         "To record video footage for review"
       ],
