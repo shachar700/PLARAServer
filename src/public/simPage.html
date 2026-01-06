@@ -281,7 +281,11 @@
             });
     }
 
-    const resetAllUserBadges = () =>{
+    const resetAllUserBadges = () => {
+        if (!confirm("Are you sure you want to reset ALL users' badges? This action cannot be undone.")) {
+            return;
+        }
+
         fetch(`${currentUrl}/dev/resetAllUserBadges`, {
             method: 'POST'
         })
@@ -297,9 +301,13 @@
             .catch(error => {
                 resultDiv.textContent = `Error: ${error}`;
             });
-    }
+    };
 
-        const resetAllUserProgress = () =>{
+    const resetAllUserProgress = () => {
+        if (!confirm("Are you sure you want to reset ALL users' progress? This action cannot be undone.")) {
+            return;
+        }
+
         fetch(`${currentUrl}/dev/resetAllUserProgress`, {
             method: 'POST'
         })
@@ -315,7 +323,7 @@
             .catch(error => {
                 resultDiv.textContent = `Error: ${error}`;
             });
-    }
+    };
 
     const getBadgesBtn = (username) => {
         fetch(`${currentUrl}/user/getUserBadges/${username}`, {
